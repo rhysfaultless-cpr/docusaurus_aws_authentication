@@ -10,6 +10,11 @@
       "StackName": "amplify-docusaurusawsauthent-dev-134724",
       "StackId": "arn:aws:cloudformation:us-east-2:066100335347:stack/amplify-docusaurusawsauthent-dev-134724/47e98aa0-66a8-11ed-97fd-0a2a202bd310",
       "AmplifyAppId": "d2xlu2crws7rbf"
+    },
+    "categories": {
+      "auth": {
+        "docusaurusawsauthentf1b76378": {}
+      }
     }
   }
 }

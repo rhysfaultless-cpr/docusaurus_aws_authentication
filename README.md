@@ -29,4 +29,13 @@
     - My IAM username
     - my IAM password
     Use the command `amplify configure` if you do not have IAM user profiles yet;noting that you will still need to have created an AWS account using your root-email address.
-8.  `npm run start`
+8.  `amplify add auth`
+    - _? Do you want to use the default authentication and security configuration?_
+      - `Default configuration`
+    - _? How do you want users to be able to sign in?_
+      - `Username`
+    - _? Do you want to configure advanced settings?_
+        - `No, I am done.`
+9.  `amplify push`
+10. `npm install aws-amplify`
+11. `npm run start`
