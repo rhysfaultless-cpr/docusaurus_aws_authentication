@@ -74,4 +74,7 @@ The commands shown are for a Linux system, but you can replicate these by using 
     - Authentication for private pages
 7.  https://github.com/facebook/docusaurus/issues/2844
     - Router interceptor and Authentication
-    
+8.  https://stackoverflow.com/questions/63810181/docusaurus-2-run-custom-script-for-every-page
+    - Docusaurus 2: Run custom script for every page
+    - https://docusaurus.io/docs/api/docusaurus-config#clientModules
+    - https://docusaurus.io/docs/advanced/client#client-modules
