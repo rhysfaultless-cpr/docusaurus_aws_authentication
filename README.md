@@ -18,6 +18,8 @@
 1.  `npx create-docusaurus@latest docusaurus_aws_authentication classic`
 2.  `cd docusaurus_aws_authentication`
 3.  Delete all _blog_ references:
-    - from _docusaurus.config.js
+    - from _docusaurus.config.js_
     - _blog_ folder and its contents
-4.  `npm run start`
+4.  Remove GitHub link from the Navigation bar (editing _docusaurus.config.js_)
+5.  Remove all links from the Footer (editing _docusaurus.config.js_)
+6.  `npm run start`
