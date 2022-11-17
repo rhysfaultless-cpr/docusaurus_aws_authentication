@@ -2,6 +2,12 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
+import { Amplify, Auth } from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import awsExports from '/src/aws-exports';
+Amplify.configure(awsExports);
+
 const FeatureList = [
   {
     title: 'Easy to Use',
@@ -49,7 +55,7 @@ function Feature({Svg, title, description}) {
   );
 }
 
-export default function HomepageFeatures() {
+function HomepageFeatures({ signOut, user }) {
   return (
     <section className={styles.features}>
       <div className="container">
@@ -62,3 +68,5 @@ export default function HomepageFeatures() {
     </section>
   );
 }
+
+export default withAuthenticator(HomepageFeatures);
