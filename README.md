@@ -22,4 +22,11 @@
     - _blog_ folder and its contents
 4.  Remove GitHub link from the Navigation bar (editing _docusaurus.config.js_)
 5.  Remove all links from the Footer (editing _docusaurus.config.js_)
-6.  `npm run start`
+6.  `npm install -g @aws-amplify/cli`
+7.  `amplify init` since I already have an Amazon Web Services IAM profile.
+    This command redirects me to a Google Chrome tab asking me to enter:
+    - My AWS acoount number
+    - My IAM username
+    - my IAM password
+    Use the command `amplify configure` if you do not have IAM user profiles yet;noting that you will still need to have created an AWS account using your root-email address.
+8.  `npm run start`
