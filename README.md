@@ -38,4 +38,40 @@
         - `No, I am done.`
 9.  `amplify push`
 10. `npm install aws-amplify`
-11. `npm run start`
+11. Added a _hidden-page_ folder and related files.
+
+---
+
+## Process to clone and use this repo
+
+This can be run on Windows, macOS, or Linux.
+The commands shown are for a Linux system, but you can replicate these by using a VS Code terminal on a Windows or macOS machine.
+
+1.  Check that you have Node.js version 16 or higher with `node -v`.
+    Install [Node.js](https://nodejs.org/) if you do not have it yet.
+1.  `git clone https://github.com/rhysfaultless-cpr/docusaurus_aws_authentication.git`
+2.  `cd docusaurus_aws_authentication.git`
+3.  `npm install`
+4.  `npm run start`
+
+---
+
+## References / Readings that helped create this
+
+1.  https://docusaurus.io/docs/next/creating-pages
+    - Creating React Pages
+    - Creating Marxdown Pages
+    - Not creating a page, by adding an underscore to the file name
+2.  https://docusaurus.io/docs/docusaurus-core#redirect
+    - Docusaurus Redirect component, to redirect to another URL path
+3.  https://docusaurus.io/docs/advanced/routing
+    - Explains Docusaurus's routing structure and build process
+4.  https://docusaurus.io/docs/advanced/architecture
+    - Explains Docusaurus's architecture for 
+5.  https://github.com/facebook/docusaurus/issues/3748
+    - _How to add access control option?_
+6.  https://github.com/facebook/docusaurus/issues/2769
+    - Authentication for private pages
+7.  https://github.com/facebook/docusaurus/issues/2844
+    - Router interceptor and Authentication
+    
