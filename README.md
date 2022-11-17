@@ -1,0 +1,1 @@
+# docusaurus_aws_authentication
