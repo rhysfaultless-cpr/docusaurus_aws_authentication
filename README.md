@@ -39,6 +39,9 @@
 9.  `amplify push`
 10. `npm install aws-amplify`
 11. Added a _hidden-page_ folder and related files.
+12. [Swizzled](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Root of Docusaurus, by manually:
+    - create a folder _/src/theme_
+    - create a file _/src/theme/Root.js_ 
 
 ---
 
