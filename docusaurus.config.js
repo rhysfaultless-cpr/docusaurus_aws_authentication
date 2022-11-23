@@ -73,10 +73,6 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-
-    clientModules: [
-      require.resolve('./src/globalJs.js'),
-    ]
 };
 
 module.exports = config;
