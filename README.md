@@ -1,6 +1,8 @@
 # docusaurus_aws_authentication
 
----
+## Link to the deployed website:
+
+-   [_production_ branch](https://production.d2xlu2crws7rbf.amplifyapp.com/)
 
 ## Tools used
 
