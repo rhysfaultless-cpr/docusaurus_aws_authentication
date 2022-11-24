@@ -37,6 +37,9 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
     <center><img src="/static/img/readme_images/readme_2.png" width="800"/></center>
 
     You can use the AWS Cognito console to block User accounts, assign User accounts to Groups for different privileges.
+
+    <center><img src="/static/img/readme_images/readme_5.png" width="800"/></center>
+
 4.  Back to our demonstration website; we can enter our username and password.
 
     <center><img src="/static/img/readme_images/readme_3.png" width="300"/></center>
