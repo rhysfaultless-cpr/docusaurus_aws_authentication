@@ -183,6 +183,20 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
         },
       }),
     ```
+
+13. Added a folder _/src/components/BlockedPageRouting_ and related files.
+    - _blockedPageContent.mdx_ is markdown content to be rendered when the User's login Group does not include 'employee'.
+      This file's filename has an underscore at the beginning so Docusaurus's Router does not create a URL path to it.
+    - _BlockedPageRouting.js_ is a React Component to decide what is rendered to the User.
+      It requires a [Hook](https://reactjs.org/docs/hooks-intro.html) _content_ to be passed into the component.
+14. Added a folder _/src/pages/privileged-page_ and related files.
+    - _privilegedPageContent.mdx_ with content to be rendered when the User's Group includes 'employee'.
+      This file's filename has an underscore at the beginning so Docusaurus's Router does not create a URL path to it.
+    - _PrivilegedPage.mdx_ does not have an underscore in the filename, so Docusaurus's Router will build a URL for this page.
+      The rendered content will depend on the result of the `<BlockedPageRouting content={pageContent} />` call inside this page.
+
+    Note, additional privileged pages can be made created by copying this folder and the related two files to the _/src/pages/_ directory, and using a new name.
+15. Updated the homepage _/src/pages/index.js_ so the main button routes to our privileged page _/src/pages/privileged-page/PrivilegedPage.mdx_
     
 ## Process to clone and use this repo locally
 
