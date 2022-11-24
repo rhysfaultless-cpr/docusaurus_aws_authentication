@@ -11,7 +11,7 @@ import BlockedPageContent from "./_blockedPageContent.mdx"
 async function fetchUserIsEmployee(setUserIsEmployee) {
   const {accessToken} = await Auth.currentSession();
   const cognitogroups = accessToken.payload['cognito:groups'];
-  setUserIsEmployee(cognitogroups.indexOf('employee') !== -1);
+  setUserIsEmployee(cognitogroups.includes('employee') !== -1);
 }
 
 function PageContent(props) {
