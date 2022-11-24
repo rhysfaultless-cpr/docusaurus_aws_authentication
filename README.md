@@ -13,7 +13,6 @@
 4.  [AWS Amplify](https://aws.amazon.com/amplify/)
 5.  [AWS Cognito](https://aws.amazon.com/cognito/)
 
----
 
 ## Process used to create this repo
 
@@ -30,7 +29,8 @@
     - My AWS acoount number
     - My IAM username
     - my IAM password
-    Use the command `amplify configure` if you do not have IAM user profiles yet;noting that you will still need to have created an AWS account using your root-email address.
+    Note: Use the command `amplify configure` if you do not have Amazon IAM user profiles yet;
+    noting that you will still need to have created an AWS account using your root-email address.
 8.  `amplify add auth`
     - _? Do you want to use the default authentication and security configuration?_
       - `Default configuration`
@@ -41,12 +41,105 @@
 9.  `amplify push`
 10. `npm install aws-amplify`
 11. Added a _hidden-page_ folder and related files.
-12. [Swizzled](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Root of Docusaurus, by manually:
-    - create a folder _/src/theme_
-    - create a file _/src/theme/Root.js_ 
+12. We force the the User to login before viewing any page content.
+    This was done by [Swizzling](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Root of Docusaurus, by manually:
+    - creating a folder _/src/theme_
+    - creating a file _/src/theme/Root.js_
 
----
+    This allows us to wrap the entire site with a sign-in authentication layer.
+    This is similar to editing the _App.js_ file of a typical React site.
+    In this repository's _/src/theme/Root.js_ file, note the `withAuthenticator` wrapping:
 
+    ```javascript
+    import React from 'react';
+    import { Amplify } from 'aws-amplify';
+    import { withAuthenticator } from '@aws-amplify/ui-react';
+    import '@aws-amplify/ui-react/styles.css';
+    import awsExports from '../aws-exports';
+    Amplify.configure(awsExports);
+
+    function Root({children}) {
+      return (
+        <>
+          {children}
+        </>
+      );
+    }
+
+    export default withAuthenticator(Root);
+    ```
+    
+    The [withAuthenticator wrapper UI](https://aws.amazon.com/blogs/mobile/amplify-uis-new-authenticator-component-makes-it-easy-to-add-customizable-login-pages-to-your-react-angular-or-vue-app/) is a simple way to add the User sign-in and sign-up forms.
+
+    <center><img src="/static/img/readme_images/readme_1.png" width="467"/></center>
+
+    Amplify offers tools to build your own UI for these autherntication calls if the prebuilt withAuthenticator is not acceptable.
+13. The User is forced to login befor seeing any of our Docusaurus page content.
+    We still need a way to allow the User to sign-out.
+    You could simply add a sign-out button to all pages by adding to the Root.js file:
+    ```javascript
+    import React from 'react';
+    import { Amplify, Auth } from 'aws-amplify';
+    import { withAuthenticator } from '@aws-amplify/ui-react';
+    import '@aws-amplify/ui-react/styles.css';
+    import awsExports from '../aws-exports';
+    Amplify.configure(awsExports);
+
+    function Root({children, signOut}) {
+      return (
+        <>
+          <button onClick={signOut}>Sign Out</button>
+          {children}
+        </>
+      );
+    }
+
+    export default withAuthenticator(Root);
+    ```
+
+    This would allow the User to sign-out, but is not an ideal location of the UI button.
+    Most User's will expect the sign-out button to be added to the Navigation Bar, or the Footer.
+    By default, all Docusaurus buttons in the Navbar or Footer require a hyperlink; and cannot be used to run a function.
+
+    We can force Docusaurus to allow a funtion buttons by [Swizzling](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Navbar or Footer (_our repository shows the steps to add a button to the Docusaurus Navbar_).
+    
+    To Swizzle the Navbar, manually:
+    - create a folder _/src/components/NavbarItems_
+    - create a file _/src/component/NavbarItems/SignOutButtons.js_
+      - Refer to the file in this repository for details of the content
+    - create a folder _/src/theme/NavbarItem_
+    - create a file _/src/theme/NavbarItem/ComponentTypes.js_
+      - Refer to the file in this repository for details of the content
+      - Note, the _custom-_ call in the line `custom-signOutButton': SignOutButton,` is required per the Docusaurus Swizzling syntax.
+    - update the existing file _/docusaurus.config.js_
+      - Add a block to the _themeConfig_ ... _navbar_ --- _items_ section
+      - The new block will add our _custom-signOutButton_ element to the Navbar
+ 
+    ```javascript
+    themeConfig:
+      ({
+        navbar: {
+          title: 'My Site',
+          logo: {
+            alt: 'My Site Logo',
+            src: 'img/logo.svg',
+          },
+          items: [
+            {
+              type: 'doc',
+              docId: 'intro',
+              position: 'left',
+              label: 'Tutorial',
+            },
+            {
+              type: 'custom-signOutButton', 
+              position: "right"
+            },
+          ],
+        },
+      }),
+    ```
+    
 ## Process to clone and use this repo
 
 This can be run on Windows, macOS, or Linux.
@@ -58,8 +151,6 @@ The commands shown are for a Linux system, but you can replicate these by using 
 2.  `cd docusaurus_aws_authentication.git`
 3.  `npm install`
 4.  `npm run start`
-
----
 
 ## References / Readings that helped create this
 
