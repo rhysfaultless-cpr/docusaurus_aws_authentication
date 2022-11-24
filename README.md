@@ -37,6 +37,9 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
     <center><img src="/static/img/readme_images/readme_2.png" width="800"/></center>
 
     You can use the AWS Cognito console to block User accounts, assign User accounts to Groups for different privileges.
+
+    <center><img src="/static/img/readme_images/readme_5.png" width="800"/></center>
+
 4.  Back to our demonstration website; we can enter our username and password.
 
     <center><img src="/static/img/readme_images/readme_3.png" width="300"/></center>
@@ -82,8 +85,7 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
         - `No, I am done.`
 9.  `amplify push`
 10. `npm install aws-amplify`
-11. Added a _hidden-page_ folder and related files.
-12. We force the the User to login before viewing any page content.
+11. We force the the User to login before viewing any page content.
     This was done by [Swizzling](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Root of Docusaurus, by manually:
     - creating a folder _/src/theme_
     - creating a file _/src/theme/Root.js_
@@ -116,7 +118,7 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
     <center><img src="/static/img/readme_images/readme_1.png" width="467"/></center>
 
     Amplify offers tools to build your own UI for these autherntication calls if the prebuilt withAuthenticator is not acceptable.
-13. The User is forced to login befor seeing any of our Docusaurus page content.
+12. The User is forced to login befor seeing any of our Docusaurus page content.
     We still need a way to allow the User to sign-out.
     You could simply add a sign-out button to all pages by adding to the Root.js file:
     ```javascript
@@ -181,6 +183,20 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
         },
       }),
     ```
+
+13. Added a folder _/src/components/BlockedPageRouting_ and related files.
+    - _blockedPageContent.mdx_ is markdown content to be rendered when the User's login Group does not include 'employee'.
+      This file's filename has an underscore at the beginning so Docusaurus's Router does not create a URL path to it.
+    - _BlockedPageRouting.js_ is a React Component to decide what is rendered to the User.
+      It requires a [Hook](https://reactjs.org/docs/hooks-intro.html) _content_ to be passed into the component.
+14. Added a folder _/src/pages/privileged-page_ and related files.
+    - _privilegedPageContent.mdx_ with content to be rendered when the User's Group includes 'employee'.
+      This file's filename has an underscore at the beginning so Docusaurus's Router does not create a URL path to it.
+    - _PrivilegedPage.mdx_ does not have an underscore in the filename, so Docusaurus's Router will build a URL for this page.
+      The rendered content will depend on the result of the `<BlockedPageRouting content={pageContent} />` call inside this page.
+
+    Note, additional privileged pages can be made created by copying this folder and the related two files to the _/src/pages/_ directory, and using a new name.
+15. Updated the homepage _/src/pages/index.js_ so the main button routes to our privileged page _/src/pages/privileged-page/PrivilegedPage.mdx_
     
 ## Process to clone and use this repo locally
 
