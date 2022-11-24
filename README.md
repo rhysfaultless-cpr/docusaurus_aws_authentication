@@ -81,3 +81,16 @@ The commands shown are for a Linux system, but you can replicate these by using 
     - Docusaurus 2: Run custom script for every page
     - https://docusaurus.io/docs/api/docusaurus-config#clientModules
     - https://docusaurus.io/docs/advanced/client#client-modules
+9.  Wrapping the Root React component
+    - https://stackoverflow.com/questions/67966163/root-component-swizzle-in-docusaurus-v2-not-working
+10. Adding a logout button:
+    - https://github.com/facebook/docusaurus/issues/7227
+    - https://github.com/facebook/docusaurus/pull/7231
+    - https://github.com/facebook/docusaurus/issues/7227
+    - https://github.com/facebook/docusaurus/issues/3135
+    - https://github.com/facebook/docusaurus/issues/7227
+    - https://docusaurus.io/docs/api/themes/configuration
+    - https://medium.com/@kevinwilliams.dev/adding-material-ui-to-docusaurus-e1889bf81515
+    - https://blog.1password.com/docusaurus-documentation-framework/
+11. AWS authentication sign-out
+    - https://docs.amplify.aws/lib/auth/emailpassword/q/platform/js/#sign-out
