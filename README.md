@@ -21,7 +21,7 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
 
 2.  You will be asked to sign-in or create a new account
 
-    <center><img src="/static/img/readme_images/readme_1.png" width="467"/></center>
+    <center><img src="/static/img/readme_images/readme_1.png" width="300"/></center>
 
     I have created two accounts, which you are welcome to sign-in with for the demonstration:
     
@@ -34,17 +34,17 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
     Note that the address will change based on what AWS datacenter you are using for your Cognito database.
     I used AWS's _us-east-2_ datacenter.
 
-    <center><img src="/static/img/readme_images/readme_2.png" width="700"/></center>
+    <center><img src="/static/img/readme_images/readme_2.png" width="800"/></center>
 
     You can use the AWS Cognito console to block User accounts, assign User accounts to Groups for different privileges.
 4.  Back to our demonstration website; we can enter our username and password.
 
-    <center><img src="/static/img/readme_images/readme_3.png" width="467"/></center>
+    <center><img src="/static/img/readme_images/readme_3.png" width="300"/></center>
 
 5.  We are routed to the homepage of the Docusaurus website.
     The addition compared to a stock Docusaurus site is that there is a new _Sign Out_ button in the top right corner of the Navigation Bar.  
 
-    <center><img src="/static/img/readme_images/readme_4.png" width="700"/></center>
+    <center><img src="/static/img/readme_images/readme_4.png" width="800"/></center>
 
 ## Tools used
 
