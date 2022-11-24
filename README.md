@@ -4,6 +4,48 @@
 
 -   [_production_ branch](https://production.d2xlu2crws7rbf.amplifyapp.com/)
 
+## Overview of the deployed website, and its purpose.
+
+This repository uses a [Docusaurus](https://docusaurus.io/) example website, including the default pages and content.
+The main difference between Docusaurus's example, and this repository's deployed site, is that this repository includes an authentication sign-in using Amazon Web Services [Cognito](https://aws.amazon.com/cognito/).
+Cognito has tools for you to manage the database of User information, and connect this to your Docusaurus or other React based website.
+The site itself is deployed using Amazon Web Services [Amplify](https://aws.amazon.com/amplify/).
+There are other Docusaurus deployment options like [Netlify](https://docusaurus.io/docs/deployment#deploying-to-netlify), [GitHub Pages](https://docusaurus.io/docs/deployment#deploying-to-netlify), and [Vercel](https://docusaurus.io/docs/deployment#deploying-to-netlify).
+For our use case, AWS was ideal for the balance between; low cost, deploying multiple branches, and an ecosystem of other features like Authentication. 
+
+Note, this guide is only relevant to you if you are using AWS's Cognito and Amplify for your Docusaurus website.
+
+### Walkthrough of this website
+
+1.  Go to the deployed site at https://production.d2xlu2crws7rbf.amplifyapp.com/
+
+2.  You will be asked to sign-in or create a new account
+
+    <center><img src="/static/img/readme_images/readme_1.png" width="467"/></center>
+
+    I have created two accounts, which you are welcome to sign-in with for the demonstration:
+    
+    |   Username   | Password  |
+    | :----------- | :-------- |
+    | cpr_employee | clearpath |
+    | cpr_customer | clearpath |
+
+3.  As a website administrator, I can go to our AWS account's console at https://us-east-2.console.aws.amazon.com/cognito/users/, and review all the User accounts in Cognito.
+    Note that the address will change based on what AWS datacenter you are using for your Cognito database.
+    I used AWS's _us-east-2_ datacenter.
+
+    <center><img src="/static/img/readme_images/readme_2.png" width="700"/></center>
+
+    You can use the AWS Cognito console to block User accounts, assign User accounts to Groups for different privileges.
+4.  Back to our demonstration website; we can enter our username and password.
+
+    <center><img src="/static/img/readme_images/readme_3.png" width="467"/></center>
+
+5.  We are routed to the homepage of the Docusaurus website.
+    The addition compared to a stock Docusaurus site is that there is a new _Sign Out_ button in the top right corner of the Navigation Bar.  
+
+    <center><img src="/static/img/readme_images/readme_4.png" width="700"/></center>
+
 ## Tools used
 
 1.  [Node.js](https://nodejs.org)
@@ -140,7 +182,7 @@
       }),
     ```
     
-## Process to clone and use this repo
+## Process to clone and use this repo locally
 
 This can be run on Windows, macOS, or Linux.
 The commands shown are for a Linux system, but you can replicate these by using a VS Code terminal on a Windows or macOS machine.
