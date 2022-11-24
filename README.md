@@ -82,8 +82,7 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
         - `No, I am done.`
 9.  `amplify push`
 10. `npm install aws-amplify`
-11. Added a _hidden-page_ folder and related files.
-12. We force the the User to login before viewing any page content.
+11. We force the the User to login before viewing any page content.
     This was done by [Swizzling](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Root of Docusaurus, by manually:
     - creating a folder _/src/theme_
     - creating a file _/src/theme/Root.js_
@@ -116,7 +115,7 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
     <center><img src="/static/img/readme_images/readme_1.png" width="467"/></center>
 
     Amplify offers tools to build your own UI for these autherntication calls if the prebuilt withAuthenticator is not acceptable.
-13. The User is forced to login befor seeing any of our Docusaurus page content.
+12. The User is forced to login befor seeing any of our Docusaurus page content.
     We still need a way to allow the User to sign-out.
     You could simply add a sign-out button to all pages by adding to the Root.js file:
     ```javascript
