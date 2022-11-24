@@ -62,6 +62,10 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
+          {
+            type: 'custom-signOutButton', 
+            position: "right"
+          },
         ],
       },
       footer: {
