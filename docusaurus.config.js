@@ -64,9 +64,7 @@ const config = {
           },
           {
             type: 'custom-signOutButton', 
-            position: "right",
-            itemProp: 44, 
-            anotherProp: "xyz"
+            position: "right"
           },
         ],
       },
