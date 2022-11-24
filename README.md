@@ -49,6 +49,25 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
 
     <center><img src="/static/img/readme_images/readme_4.png" width="800"/></center>
 
+6.  Click on the _Privileged Page_ button in the centre of the homepage.
+    You will be routed to the Page, _/src/privileged-page/PrivilegedPage_.
+    The content that is rendered is dependent on the User's Group in AWS Cognito.
+    The example Users I created have the following permissions:
+
+    |   Username   | Permissions                                       |
+    | :----------- | :------------------------------------------------ |
+    | cpr_customer | no gropus, with basic access permissions          |
+    | cpr_employee | group **'employee'** with full access permissions |
+    
+    The content redered for these different Users are:
+
+    - User = **cpr_customer**
+      <center><img src="/static/img/readme_images/readme_6.png" width="600"/></center>
+    
+    - User = **cpr_employee**
+      <center><img src="/static/img/readme_images/readme_7.png" width="600"/></center>
+      
+
 ## Tools used
 
 1.  [Node.js](https://nodejs.org)
