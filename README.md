@@ -56,10 +56,10 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
 
     |   Username   | Permissions                                       |
     | :----------- | :------------------------------------------------ |
-    | cpr_customer | no gropus, with basic access permissions          |
+    | cpr_customer | no groups, with basic access permissions          |
     | cpr_employee | group **'employee'** with full access permissions |
     
-    The content redered for these different Users are:
+    The content rendered for these different Users are:
 
     - User = **cpr_customer**
       <center><img src="/static/img/readme_images/readme_6.png" width="600"/></center>
@@ -90,7 +90,7 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
 6.  `npm install -g @aws-amplify/cli`
 7.  `amplify init` since I already have an Amazon Web Services IAM profile.
     This command redirects me to a Google Chrome tab asking me to enter:
-    - My AWS acoount number
+    - My AWS account number
     - My IAM username
     - my IAM password
     Note: Use the command `amplify configure` if you do not have Amazon IAM user profiles yet;
@@ -104,7 +104,7 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
         - `No, I am done.`
 9.  `amplify push`
 10. `npm install aws-amplify`
-11. We force the the User to login before viewing any page content.
+11. We force the User to login before viewing any page content.
     This was done by [Swizzling](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Root of Docusaurus, by manually:
     - creating a folder _/src/theme_
     - creating a file _/src/theme/Root.js_
@@ -136,8 +136,8 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
 
     <center><img src="/static/img/readme_images/readme_1.png" width="467"/></center>
 
-    Amplify offers tools to build your own UI for these autherntication calls if the prebuilt withAuthenticator is not acceptable.
-12. The User is forced to login befor seeing any of our Docusaurus page content.
+    Amplify offers tools to build your own UI for these authentication calls if the prebuilt withAuthenticator is not acceptable.
+12. The User is forced to login before seeing any of our Docusaurus page content.
     We still need a way to allow the User to sign-out.
     You could simply add a sign-out button to all pages by adding to the Root.js file:
     ```javascript
@@ -164,17 +164,17 @@ Note, this guide is only relevant to you if you are using AWS's Cognito and Ampl
     Most User's will expect the sign-out button to be added to the Navigation Bar, or the Footer.
     By default, all Docusaurus buttons in the Navbar or Footer require a hyperlink; and cannot be used to run a function.
 
-    We can force Docusaurus to allow a funtion buttons by [Swizzling](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Navbar or Footer (_our repository shows the steps to add a button to the Docusaurus Navbar_).
+    We can force Docusaurus to allow function buttons by [Swizzling](https://docusaurus.io/docs/swizzling#wrapper-your-site-with-root) the Navbar or Footer (_our repository shows the steps to add a button to the Docusaurus Navbar_).
     
     To Swizzle the Navbar, manually:
-    - create a folder _/src/components/NavbarItems_
-    - create a file _/src/component/NavbarItems/SignOutButtons.js_
+    - Create a folder _/src/components/NavbarItems_
+    - Create a file _/src/component/NavbarItems/SignOutButtons.js_
       - Refer to the file in this repository for details of the content
-    - create a folder _/src/theme/NavbarItem_
-    - create a file _/src/theme/NavbarItem/ComponentTypes.js_
+    - Create a folder _/src/theme/NavbarItem_
+    - Create a file _/src/theme/NavbarItem/ComponentTypes.js_
       - Refer to the file in this repository for details of the content
       - Note, the _custom-_ call in the line `custom-signOutButton': SignOutButton,` is required per the Docusaurus Swizzling syntax.
-    - update the existing file _/docusaurus.config.js_
+    - Update the existing file _/docusaurus.config.js_
       - Add a block to the _themeConfig_ ... _navbar_ --- _items_ section
       - The new block will add our _custom-signOutButton_ element to the Navbar
  
